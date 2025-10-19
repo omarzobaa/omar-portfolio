@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Omar Zobaa — Computer Scientist</title>
+  <meta name="description" content="Portfolio of Omar Zobaa — Computer Scientist. Projects, resume, contact." />
+
+  <!-- Favicon (optional) -->
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+  <style>
+    :root{
+      --bg:#0b1020; /* deep black-blue */
+      --panel:#0f1724; /* slightly lighter */
+      --accent:#0ea5e9; /* bright blue */
+      --muted:#9aa5b1; /* gray */
+      --white:#ffffff;
+      --glass: rgba(255,255,255,0.04);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;color:var(--white);background:linear-gradient(180deg,var(--bg),#061022);-webkit-font-smoothing:antialiased}
+
+    /* layout */
+    .container{max-width:1100px;margin:0 auto;padding:36px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#073b6b);display:grid;place-items:center;font-weight:700;box-shadow:0 6px 20px rgba(4,9,22,0.6)}
+    .brand h1{margin:0;font-size:18px}
+    nav{display:flex;gap:12px;align-items:center}
+    .nav-btn{background:transparent;border:1px solid transparent;padding:10px 14px;border-radius:10px;color:var(--muted);cursor:pointer;font-weight:600}
+    .nav-btn:hover{color:var(--white);border-color:rgba(255,255,255,0.06);background:var(--glass)}
+
+    /* hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center;padding:48px 0}
+    .intro h2{font-size:36px;margin:0 0 8px}
+    .intro p{margin:0 0 18px;color:var(--muted);line-height:1.5}
+    .cta-row{display:flex;gap:12px}
+    .btn{background:var(--accent);color:var(--bg);padding:12px 18px;border-radius:10px;border:none;cursor:pointer;font-weight:700;box-shadow:0 8px 30px rgba(14,165,233,0.12)}
+    .btn.secondary{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.06)}
+
+    /* card */
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:14px;border:1px solid rgba(255,255,255,0.03)}
+    .profile-img{width:100%;height:240px;border-radius:10px;background:linear-gradient(180deg,#08324a, #051021);display:flex;align-items:center;justify-content:center;font-size:20px;color:rgba(255,255,255,0.85)}
+
+    /* sections */
+    section{padding:80px 0;border-top:1px solid rgba(255,255,255,0.02)}
+    h3.section-title{font-size:28px;margin:0 0 18px}
+
+    /* projects */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+    .project{padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.006));transition:transform .45s cubic-bezier(.2,.9,.3,1),box-shadow .25s}
+    .project:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(2,6,23,0.6)}
+    .project .tag{display:inline-block;padding:6px 10px;border-radius:8px;font-size:12px;background:rgba(14,165,233,0.08);color:var(--accent);margin-bottom:10px}
+
+    /* resume & contact */
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+
+    footer{padding:24px 0;color:var(--muted);text-align:center}
+
+    /* small screens */
+    @media (max-width:880px){.hero{grid-template-columns:1fr;}.container{padding:20px}.nav-btn{display:none}}
+
+    /* scroll reveal animations */
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s cubic-bezier(.2,.9,.3,1)}
+    .reveal.show{opacity:1;transform:none}
+
+    /* fancy animated background accent */
+    .accent-wave{position:absolute;right:-120px;top:40px;opacity:0.06;filter:blur(20px);width:420px;height:420px;background:radial-gradient(circle at 30% 30%, var(--accent), transparent 40%)}
+
+    /* floating action */
+    .fab{position:fixed;right:22px;bottom:22px;background:var(--accent);color:var(--bg);padding:12px;border-radius:12px;border:none;cursor:pointer;font-weight:800;box-shadow:0 12px 30px rgba(14,165,233,0.14)}
+
+    /* subtle micro-interactions */
+    .link{color:var(--accent);text-decoration:underline;cursor:pointer}
+
+    /* accessibility focus */
+    .nav-btn:focus,.btn:focus,.link:focus{outline:3px solid rgba(14,165,233,0.18);outline-offset:3px}
+  </style>
+</head>
+<body>
+  <div class="accent-wave" aria-hidden="true"></div>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">OZ</div>
+        <div>
+          <h1>Omar Zobaa</h1>
+          <div style="color:var(--muted);font-size:13px">Computer Scientist — Odessa, TX</div>
+        </div>
+      </div>
+
+      <nav role="navigation" aria-label="Main site navigation">
+        <button class="nav-btn" data-target="#home">Home</button>
+        <button class="nav-btn" data-target="#about">About</button>
+        <button class="nav-btn" data-target="#projects">Projects</button>
+        <button class="nav-btn" data-target="#resume">Resume</button>
+        <a class="nav-btn" href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="intro reveal">
+          <h2>Hi — I'm <span style="color:var(--accent)">Omar Zobaa</span>.</h2>
+          <p>I build reliable, maintainable software and experiment with hardware integrations — like a drone I programmed to follow autonomous paths. I’m pursuing Computer Science and I love clean code, thoughtful systems, and practical automation.</p>
+
+          <div class="cta-row">
+            <button class="btn" data-target="#projects">See Projects</button>
+            <button class="btn secondary" id="view-resume">Download Resume</button>
+          </div>
+
+          <div style="margin-top:18px;color:var(--muted);font-size:14px">GitHub: <a class="link" id="github-link" href="https://github.com/">github.com/your-username</a></div>
+        </div>
+
+        <aside class="card reveal">
+          <div class="profile-img">Professional<br>Portfolio</div>
+          <div style="margin-top:16px">
+            <div style="font-weight:700">Quick Info</div>
+            <div style="color:var(--muted);margin-top:8px">Computer Scientist • Python / Java / C++ • Web Dev • Leadership</div>
+            <div style="margin-top:12px;display:flex;gap:10px">
+              <button class="btn" data-target="#contact">Contact</button>
+              <a class="btn secondary" href="#projects">Projects</a>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about">
+        <h3 class="section-title reveal">About Me</h3>
+        <div class="card reveal">
+          <p style="margin:0 0 12px;color:var(--muted)">I’m Omar, a motivated student from Odessa, TX, focused on software systems and automation. I enjoy solving practical problems with elegant code and learning new tools. My recent hands-on work includes programming a drone for autonomous flight and building lightweight web apps.</p>
+          <div style="display:flex;gap:14px;flex-wrap:wrap">
+            <div style="min-width:180px">
+              <strong>Skills</strong>
+              <ul style="margin:8px 0 0;padding-left:18px;color:var(--muted)">
+                <li>Python</li>
+                <li>Java</li>
+                <li>C++</li>
+                <li>Web Development</li>
+                <li>Microsoft Office</li>
+              </ul>
+            </div>
+            <div style="min-width:200px">
+              <strong>Interests</strong>
+              <ul style="margin:8px 0 0;padding-left:18px;color:var(--muted)">
+                <li>Robotics & Automation</li>
+                <li>Data Structures & Algorithms</li>
+                <li>Open-source Projects</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h3 class="section-title reveal">Projects</h3>
+        <div class="grid">
+          <article class="project reveal">
+            <div class="tag">Autonomy</div>
+            <h4>Home Drone — Autonomous Pathing</h4>
+            <p style="color:var(--muted)">Built a lightweight drone control program in Python that follows waypoints, captures images, and logs telemetry for post-flight analysis. Integrated camera and basic obstacle avoidance logic.</p>
+            <p style="margin-top:8px"><strong>Tech:</strong> Python, OpenCV, Microcontroller firmware, GitHub</p>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="#" onclick="openInNewTab('https://www.youtube.com/watch?v=xvFZjo5PgG0')">View Code</a>
+              <button class="btn secondary" onclick="scrollToSection('#contact')">Ask About This</button>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <div class="tag">Web</div>
+            <h4>BCIS Course Portfolio</h4>
+            <p style="color:var(--muted)">A site documenting course projects and presentation materials built with HTML, CSS, and JavaScript; includes downloadable resume and Word docs for class submission.</p>
+            <p style="margin-top:8px"><strong>Tech:</strong> HTML, CSS, JavaScript</p>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="#" onclick="openInNewTab('https://github.com/')">View Project</a>
+              <button class="btn secondary" onclick="scrollToSection('#resume')">Download Files</button>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <div class="tag">Tooling</div>
+            <h4>Automation Scripts</h4>
+            <p style="color:var(--muted)">Small utilities for file processing and data conversion used during coursework and personal projects.</p>
+            <p style="margin-top:8px"><strong>Tech:</strong> Python, Bash, Git</p>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="#" onclick="openInNewTab('https://github.com/')">View Scripts</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="resume">
+        <h3 class="section-title reveal">Resume & Education</h3>
+        <div class="two-col">
+          <div class="card reveal">
+            <h4>Resume</h4>
+            <p style="color:var(--muted)">Download a polished resume you can submit for the BCIS final project.</p>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" id="download-resume" href="#">Download Resume</a>
+              <a class="btn secondary" href="#" onclick="openInNewTab('https://github.com/')">View GitHub</a>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <h4>Education</h4>
+            <p style="color:var(--muted)"><strong>Odessa High School</strong> — Dual Credit Student<br>Expected Graduation: May 2026</p>
+            <p style="color:var(--muted)">Relevant coursework: Business Computer Applications, Intro to Programming, Computer Science Principles.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h3 class="section-title reveal">Contact</h3>
+        <div class="card reveal">
+          <p style="margin:0 0 12px;color:var(--muted)">I’m available for internships and collaborative projects. Email me or check my GitHub to see code and open-source contributions.</p>
+
+          <form id="contact-form" style="display:grid;gap:10px;max-width:560px">
+            <input name="name" placeholder="Your name" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--white)">
+            <input name="email" placeholder="Your email" type="email" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--white)">
+            <textarea name="message" placeholder="Message" rows="4" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--white)"></textarea>
+            <div style="display:flex;gap:8px">
+              <button class="btn" type="submit">Send Message</button>
+              <button class="btn secondary" type="button" onclick="openInNewTab('mailto:omar.z@example.com')">Email Me</button>
+            </div>
+            <div id="form-status" style="color:var(--muted);font-size:13px"></div>
+          </form>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Omar Zobaa • Odessa, TX • Built with care</div>
+    </footer>
+  </div>
+
+  <button class="fab" title="Go to top" onclick="scrollToTop()">↑</button>
+
+  <script>
+    // small helpers
+    const scrollToSection = (sel) => document.querySelector(sel)?.scrollIntoView({behavior:'smooth',block:'start'});
+    const openInNewTab = (url) => window.open(url,'_blank');
+    const scrollToTop = () => window.scrollTo({top:0,behavior:'smooth'});
+
+    // wire nav buttons
+    document.querySelectorAll('[data-target]').forEach(btn=>{
+      btn.addEventListener('click', e=>{
+        const t = btn.getAttribute('data-target');
+        if(t && document.querySelector(t)) scrollToSection(t);
+      })
+    });
+
+    // set year and github link
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // update this to your real GitHub profile
+    const githubUrl = 'https://github.com/';
+    document.getElementById('github-link').href = githubUrl;
+
+    // resume download hook - if you host resume at /resume.pdf, set link
+    document.getElementById('download-resume').addEventListener('click', (e)=>{
+      e.preventDefault();
+      // change path to your uploaded resume on GitHub Pages or raw link
+      const resumePath = 'Resume_Omar_Zobaa.docx';
+      openInNewTab(resumePath);
+    });
+
+    // contact form (client-side simulation)
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      document.getElementById('form-status').textContent = 'Message sent! (This demo does not actually send email.)';
+      form.reset();
+      setTimeout(()=>document.getElementById('form-status').textContent='',4000);
+    });
+
+    // reveal on scroll
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(ent=>{
+        if(ent.isIntersecting) ent.target.classList.add('show');
+      })
+    },{threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(e=>observer.observe(e));
+
+    // keyboard accessibility: press 'G' to go to GitHub
+    window.addEventListener('keydown',(e)=>{ if(e.key.toLowerCase()==='g') openInNewTab(githubUrl) });
+
+    // reduce motion preference
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      document.querySelectorAll('.reveal').forEach(el=>{ el.style.transition='none'; el.classList.add('show') });
+    }
+  </script>
+</body>
+</html>
